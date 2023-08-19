@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    margin-left: 33px;
+    margin-top: 14px;
+}
+
+.containerbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftbar {
+    width: 200px;
+    height: 200vh;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.leftbar-list a {
+    color: black;
+}
+
+.pages li a {
+    color: black;
+    margin-left: 5px;
+}
+
+.account li a {
+    color: black;
+    margin-left: 5px;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+    display: block;
+}
+
+.rightside-img img {
+    width: 250px;
+    height: 250px;
+}
+
+.midbar {
+    width: 1224px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lft {
+    margin-left: 25px;
+}
+.mid-block{
+    width: 1234px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.midblock {
+    width: 800px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+input.check-box{
+    width: 20px;
+    height: 20px;
+}
+.internalspace {
+    width: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mid-2 {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdoen-int {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fivecols {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.division {
+    margin-left: 200px;
+}
+
+/* .division-1 {
+    width: 225px;
+    margin-left: 25px;
+}
+
+.division-2 {
+    width: 220px;
+    margin-left: 90px;
+}
+
+.division-3 {
+    margin-left: 180px;
+}
+
+.division-4 {
+    width: 100px;
+    margin-left: 180px;
+} */
+.d-flex{
+    display: flex;
+    justify-content:flex-start;
+}
+.division-1{
+    display: flex;
+    justify-content: space-between;
+}
