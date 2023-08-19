@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./aman.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+
+            var button = document.getElementById('change-chart');
+            var chartDiv = document.getElementById('chart_div');
+
+            var data = google.visualization.arrayToDataTable([
+                ['Galaxy', 'Distance', 'Brightness'],
+                ['Canis Major Dwarf', 8000, 23.3],
+                ['Sagittarius Dwarf', 24000, 4.5],
+                ['Ursa Major II Dwarf', 30000, 14.3],
+                ['Lg. Magellanic Cloud', 50000, 0.9],
+                ['Bootes I', 60000, 13.1]
+            ]);
+
+            var materialOptions = {
+                width: 350,
+                chart: {
+                    title: 'Nearby galaxies',
+                    subtitle: 'distance on the left, brightness on the right'
+                },
+                series: {
+                    0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+                    1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+                },
+                axes: {
+                    y: {
+                        distance: { label: 'parsecs' }, // Left y-axis.
+                        brightness: { side: 'right', label: 'apparent magnitude' } // Right y-axis.
+                    }
+                }
+            };
+
+            var classicOptions = {
+                width: 900,
+                series: {
+                    0: { targetAxisIndex: 0 },
+                    1: { targetAxisIndex: 1 }
+                },
+                title: 'Nearby galaxies - distance on the left, brightness on the right',
+                vAxes: {
+                    // Adds titles to each axis.
+                    0: { title: 'parsecs' },
+                    1: { title: 'apparent magnitude' }
+                }
+            };
+
+            function drawMaterialChart() {
+                var materialChart = new google.charts.Bar(chartDiv);
+                materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
+                button.innerText = 'Change to Classic';
+                button.onclick = drawClassicChart;
+            }
+
+            function drawClassicChart() {
+                var classicChart = new google.visualization.ColumnChart(chartDiv);
+                classicChart.draw(data, classicOptions);
+                button.innerText = 'Change to Material';
+                button.onclick = drawMaterialChart;
+            }
+
+            drawMaterialChart();
+        };
+    </script> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="#"><img src="./logo-default.svg" alt=""><span style="margin-left: 155px;"><i
+                    class="bi bi-unindent"></i></span></a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bar-chart"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><span><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-sign-railroad-fill"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.224 3.162 8 6.94l3.777-3.777L9.049.435Zm3.274 7.425v-.862h.467c.28 0 .467.154.467.44 0 .28-.182.421-.475.421h-.459Z" />
+                                <path
+                                    d="M12.838 4.223 9.06 8l3.777 3.777 2.727-2.728c.58-.58.58-1.519 0-2.098l-2.727-2.728Zm.03 2.361c.591 0 .935.334.935.844a.79.79 0 0 1-.485.748l.536 1.074h-.59l-.467-.994h-.473v.994h-.521V6.584h1.064Zm-1.091 6.254L8 9.06l-3.777 3.777 2.728 2.727c.58.58 1.519.58 2.098 0l2.728-2.727Zm-8.953-5.84v.861h.46c.292 0 .474-.14.474-.421 0-.286-.188-.44-.467-.44h-.467Z" />
+                                <path
+                                    d="M3.162 11.777 6.94 8 3.162 4.223.435 6.951c-.58.58-.58 1.519 0 2.098l2.727 2.728Zm-.86-5.193h1.065c.592 0 .936.334.936.844 0 .39-.242.654-.485.748l.536 1.074h-.59l-.467-.994h-.473v.994h-.521V6.584Z" />
+                            </svg></span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  href=" #" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-menu-up"></i>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                        </svg></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  href=" #" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-sun-fill"></i>
+                    </a>
+
+                </li>
+                <li class="nav-item me-4">
+                    <a class="nav-link disabled" href="#" aria-disabled="true"><img src="./profile picture.jpg"
+                            width="30px" height="30px" alt=""></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="containerbox">
+        <div class="leftbar">
+            <!-- <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-grid-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
+                </svg></a>
+            <span style="margin-left: 10px;">Dashboard</span></a>
+            <ul class="leftbar-list">
+                <li><a href="">Multipurpose</a></li>
+                <li><a href="">Store Analytics</a></li>
+                <li><a href="">Logistics</a></li>
+                <li><a href="">Projects</a></li>
+
+            </ul> -->
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-grid-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
+                    </svg> Dashboard
+                </a>
+                <ul class="dropdown-menu pages ms-4" aria-labelledby="navbarDropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Multipurpose</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Store Analytics</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Logistics</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Projects</a></li>
+
+                </ul>
+            </div>
+            <p>CRAFTED</p>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-gift" viewBox="0 0 16 16">
+                        <path
+                            d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z" />
+                    </svg> Pages
+                </a>
+                <ul class="dropdown-menu pages ms-4" aria-labelledby="navbarDropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>User Profile</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Social</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>About</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>FAQ</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Contact Us</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Pricing</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Licenses</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Sitemap</a></li>
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-person"></i> Accounts
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="navbarDropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Overview</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Settings</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Security</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Activity</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Billing</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Statements</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Referrals</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>API keys</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Logs</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Orders</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-fingerprint"></i> Authentication
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Sign In</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Sign Up</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Welcome Message</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Verify Email</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Password Confirmation</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Account Deactivation</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Error 404</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Error 500</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Email Templetes</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-mortarboard"></i> Utilities
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Modals</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Search</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Wizards</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-gear"></i> Layouts
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Extended Aside</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Compact Aside</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Minimised Aside</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Tabbed Content</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Layout Builder</a></li>
+                </ul>
+            </div>
+            <p>APPS</p>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-rocket-takeoff" viewBox="0 0 16 16">
+                        <path
+                            d="M9.752 6.193c.599.6 1.73.437 2.528-.362.798-.799.96-1.932.362-2.531-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532Z" />
+                        <path
+                            d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9.42 9.42 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a9.556 9.556 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093.067.017.12.033.16.045.184.06.279.13.351.295l.029.073a3.475 3.475 0 0 1 .157.721c.055.485.051 1.178-.159 2.065Zm-4.828 7.475.04-.04-.107 1.081a1.536 1.536 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a8.548 8.548 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006ZM5.205 5c-.625.626-.94 1.351-1.004 2.09a8.497 8.497 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107-.04.039Zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799 1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a2.835 2.835 0 0 0-.045-.283 3.078 3.078 0 0 0-.3-.041Z" />
+                        <path
+                            d="M7.009 12.139a7.632 7.632 0 0 1-1.804-1.352A7.568 7.568 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z" />
+                    </svg> Projects
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>My Projects</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>View Project</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Targets</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Budget</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Users</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Files</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Activity</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Settings</a></li>
+
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-cart" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg> eCommerece
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Catalog</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Sales</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Customers</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Reports</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Settings</a></li>
+
+
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-phone" viewBox="0 0 16 16">
+                        <path
+                            d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                    </svg> Contacts
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Getting Started</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Add Contact</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Edit Contact</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>View Contact</a></li>
+
+
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-arrow-repeat"></i> Support Center
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Overview</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Tickets</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Tutorials</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>FAQ</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Licenses</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-shield-lock-fill"></i> User Management
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>users</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Roles</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Permisions</a></li>
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-briefcase-fill"></i> Customers
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Getting Started</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Customer Listing</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Customer Details</a></li>
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-file-earmark-check-fill"></i> File Manager
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Folders</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Files</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Blank Directory</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Settings</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-envelope-fill"></i>Inbox
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Messages</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Compose</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>View & Reply</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-chat-left-text"></i>Chat
+                </a>
+                <ul class="dropdown-menu account ms-4" aria-labelledby="Dropdown">
+                    <li><a href=""><i class="bi bi-dot"></i>Private Chat</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Group Chat</a></li>
+                    <li><a href=""><i class="bi bi-dot"></i>Drawer Chat</a></li>
+
+                </ul>
+            </div>
+            <div><a class="nav-link " href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                    <i class="bi bi-calendar-date"></i>Calender
+                </a></div>
+
+            <div class="mt-4">
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                    <i class="bi bi-square-half"></i>FComponents
+                </a>
+            </div>
+            <div>
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                    <i class="bi bi-card-text"></i>Documentation
+                </a>
+            </div>
+            <div>
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                    <i class="bi bi-hexagon-fill"></i>Layout Builder
+                </a>
+            </div>
+            <div>
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" aria-expanded="false">
+                    <i class="bi bi-code-slash"></i>Changelog
+                </a>
+            </div>
+        </div>
+        <div class="bg-light">
+            <div class="midbar bg-light">
+                <div class="lft">
+                    <h5>Dashboard</h5>
+                    Home/ &nbsp Dashboards/ &nbsp Multipurpose
+                </div>
+                <div>
+                    <div class="d-grid gap-0 d-md-block">
+                        <button class="btn btn-lg btn-outline-primary" type="button">Invite Friends</button>
+                        <button class="btn btn-lg btn-primary" type="button">New Project</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mid-block">
+                <div class="ms-4">
+                    <!-- <div id="myChart" style="width:100%; max-width:600px; height:300px;"></div>
+                    <div class="ms-4">
+                        <div><button id="change-chart">Change to Classic</button>
+                            <br><br>
+                            <div id="chart_div" style="width: 100px; height: 300px;" ></div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+                <div style="margin-left: 300px;">
+                    <div class="internalspace">
+                        <div>
+                            <h5>Announcement</h5>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-dot" viewBox="0 0 16 16">
+                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                            </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-dot" viewBox="0 0 16 16">
+                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                            </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-dot" viewBox="0 0 16 16">
+                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 style="margin-top: 15px;">Craft Admin Launch Day</h4>
+                    <p style="line-height:5px; margin-top:25px;">To start a blog, think of a topic about and</p>
+                    <p style="line-height:5px;">first brainstorm ways to write details</p>
+                    <div class="internalspace">
+                        <a class="btn btn-light mb-2 text-primary fw-bolder" href="#" role="button"> OCT 05, 10
+                        </a>
+                        <a class="btn btn-light me-2 mb-2" href="#" role="button">Upgrade Plan</a>
+                    </div>
+                    <div class="mt-5">
+                        <div class="internalspace">
+                            <div>
+                                <h5>Today's Schedule</h5>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dot" viewBox="0 0 16 16">
+                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dot" viewBox="0 0 16 16">
+                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dot" viewBox="0 0 16 16">
+                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h4 style="margin-top: 25px;">UI/UX Design Updates</h4>
+                        <h3 class="text-primary fw-bolder"
+                            style="line-height:5px; margin-top:30px; margin-bottom:25px;">
+                            11:15AM -
+                            12:30PM
+
+                        </h3>
+                        <div class="internalspace">
+                            <a style="margin-top: 15px;" type="button">234 E St. Broadwey NY..</a>
+                            <a class="btn btn-ligh mt-2 me-2 mb-2" href="#" role="button">Map</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 45px;">
+                    <h4>Kickstart</h4>
+                    <h4>Mobie Application</h4>
+                    <p style="line-height: 3px;">Outlines keep you honest. They stoping</p>
+                    <p style="line-height: 3px;">you from amazing poorly about drive</p>
+                    <button style="margin-top: 15px;" type="button" class="btn btn-primary btn-lg">Create
+                        Apps</button><br>
+                    <img src="./girl.png" height="200px" width="200px">
+
+                    <div>
+                        <h5>Achievements</h5>
+                        <p>
+                            100k+ sales templates sales
+                        </p>
+                    </div>
+                    <div class="col-4" style="width:390px;">
+                        <div class="border-set ms-5">
+                            <h4 style="border: 5px solid blue; border-radius: 50%; width: 100px; margin-left: 100px;">
+                                74%</h4>
+                            <p style="margin-right: 25px; line-height: 5px;">My Achievements</p>
+                        </div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-globe"></i></div>
+                        <div>
+                            <h5>Global Stars</h5>
+                            <p>12 Hours,4 Commits</p>
+                        </div>
+                        <div><i class="bi bi-arrow-right-square-fill"></i></div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="<a class=" nav-link" aria-current="page" href="#"><span><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-sign-railroad-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.224 3.162 8 6.94l3.777-3.777L9.049.435Zm3.274 7.425v-.862h.467c.28 0 .467.154.467.44 0 .28-.182.421-.475.421h-.459Z" />
+                                        <path
+                                            d="M12.838 4.223 9.06 8l3.777 3.777 2.727-2.728c.58-.58.58-1.519 0-2.098l-2.727-2.728Zm.03 2.361c.591 0 .935.334.935.844a.79.79 0 0 1-.485.748l.536 1.074h-.59l-.467-.994h-.473v.994h-.521V6.584h1.064Zm-1.091 6.254L8 9.06l-3.777 3.777 2.728 2.727c.58.58 1.519.58 2.098 0l2.728-2.727Zm-8.953-5.84v.861h.46c.292 0 .474-.14.474-.421 0-.286-.188-.44-.467-.44h-.467Z" />
+                                        <path
+                                            d="M3.162 11.777 6.94 8 3.162 4.223.435 6.951c-.58.58-.58 1.519 0 2.098l2.727 2.728Zm-.86-5.193h1.065c.592 0 .936.334.936.844 0 .39-.242.654-.485.748l.536 1.074h-.59l-.467-.994h-.473v.994h-.521V6.584Z" />
+                                    </svg></span></a></i></div>
+                        <div>
+                            <h5>Focus Keeper</h5>
+                            <p>6 Hours,3 Commits</p>
+                        </div>
+                        <div><i class="bi bi-arrow-right-square-fill"></i></div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="<a class=" nav-link" href="#"><svg width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                    <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                </svg></a></i></div>
+                        <div>
+                            <h5>High Tower</h5>
+                            <p>34 Hours,15 Commits</p>
+                        </div>
+                        <div><i class="bi bi-arrow-right-square-fill"></i></div>
+                    </div>
+                    <div>
+                        <h5>Timeline</h5>
+                        <p>
+                            890344 Sales
+                        </p>
+                    </div>
+                    <div class="col-4" style="width:390px;">
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-stack"></i></div>
+                        <div>
+                            <h5>Developer Library Added</h5>
+                            <p>New Author Accountwith Affiliate</p>
+                        </div>
+                        <div>2 HR</div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-credit-card"></i></div>
+                        <div>
+                            <h5>Payments Method Added</h5>
+                            <p>Added Payoneer& Transferwise</p>
+                        </div>
+                        <div>6 HR</div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-house-fill"></i></div>
+                        <div>
+                            <h5>New Order Placed</h5>
+                            <p>#XDT-034order received</p>
+                        </div>
+                        <div>4 DY</div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-person-lines-fill"></i></div>
+                        <div>
+                            <h5>New User Library Added</h5>
+                            <p>New Author Accountcreated</p>
+                        </div>
+                        <div>27 DY</div>
+                    </div>
+                    <div class="division-1">
+                        <div><i class="bi bi-file-earmark-text"></i></div>
+                        <div>
+                            <h5>New Story Created</h5>
+                            <p>#XDT-034order received</p>
+                        </div>
+                        <div>2 MO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <img src="./graph1.png" style="margin-left: 280px; margin-top:-2600px" width="350px" alt="">
+    <img src="./graph2.png" style="margin-left: -350px; margin-top:-2160px" width="350px" alt="">
+    <div class="midblock" style="margin-left: 300px; margin-top: -900px;">
+
+        <div class="mid-2">
+            <div>
+                <h5>Team's Progress</h5>
+                <p>890,344 Salesx</p>
+            </div>
+            <div class="flex-end">
+                <!-- Large button groups (default and split) -->
+                <div class="btn-group">
+                    <button class="btn btn-light btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        All Users
+                    </button>
+                    <ul class="dropdown-menu">
+                        <div class="dropdoen-int">
+                            <div>All Users</div>
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-check text-primary" viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                                </svg></div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <input placeholder="&nbsp Search" style="width: 100px;" type="input">
+
+                    <button type="button" class="btn btn-md btn-secondary dropdown-toggle dropdown-toggle-split"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row">
+            <div class="col">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check-square" viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                        </svg> -->
+                <input class="check-box" type="checkbox" style="font-size: 25px;">
+            </div>
+            <div class="col" style="margin-left: 30px;">
+                <h5>Authors</h5>
+            </div>
+            <div class="col" style="margin-left: 90px; ">
+                <h5>Company</h5>
+            </div>
+            <div class="col" style="margin-left: 90px;">
+                <h5>Progress</h5>
+            </div>
+            <div class="col" style="margin-left: 120px;">
+                <h5>Action</h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row mt-3">
+            <div class="col-1">
+                <input class="check-box" type="checkbox" style="font-size: 25px;">
+
+            </div>
+            <div class="col" style="width:300px; ">
+                <img src="flower.svg" width="16" height="16" alt=""><span style="padding-left: 10px;"> Brad Simmons</span>
+                <p style="padding-left: 30px;">HTML,JS,ReactJS</p>
+            </div>
+            <div class="col" style="width:300px; margin-left:30px ;">
+                Intertico
+                <p>Web, UI/UX Design</p>
+            </div>
+            <div class="col" style="width:300px;margin-left:55px ;">
+                65%
+            </div>
+            <div class="col" style="width:300px;">
+                <input style="margin-left: 40px;" type="button" value="View">
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row">
+            <div class="col-1">
+                <input class="check-box" type="checkbox" style="font-size: 25px;">
+
+            </div>
+            <div class="col" style="width:300px;">
+                <img src="leaf.svg" width="16" height="16" alt=""><span style="padding-left:10px"> Jessie Clarcson </span>
+                <p style="padding-left:30px">C#, ASP.NET, MS SQL</p>
+            </div>
+            <div class="col" style="width:300px; margin-left: 30px;">
+                Agoda
+                <p>Houses & Hotels</p>
+            </div>
+            <div class="col" style="width:300px;margin-left: 55px;">
+                85%
+            </div>
+            <div class="col" style="width:300px;">
+                <input type="button" style="margin-left: 40px;" value="View">
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row">
+            <div class="col-1">
+                <input class="check-box" type="checkbox" style="font-size: 25px;">
+
+            </div>
+            <div class="col" style="width:300px;">
+                <img src="card.svg" width="16" height="16" alt=""><span style="padding-left: 10px;"> Lebron Wayde</span>
+                <p style="padding-left: 30px;">PHP, Laravel, VueJS</p>
+            </div>
+            <div class="col" style="width:300px; margin-left:30px ;">
+                RoadGee
+                <p>Transportation</p>
+            </div>
+            <div class="col" style="width:300px; margin-left: 55px;">
+                4%
+            </div>
+            <div class="col" style="width:300px;">
+                <input style=" margin-left:40px;" type="button" value="View">
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row">
+            <div class="col-1">
+                <input class="check-box" type="checkbox" style="font-size: 25px;">
+
+            </div>
+            <div class="col" style="width:300px;">
+                <img src="nine.svg" width="16" height="16"  alt=""><span style="padding-left: 10px;"> Natali Trump</span>
+                <p style="padding-left: 30px;">Python, ReactJS</p>
+            </div>
+            <div class="col" style="width:300px; margin-left: 30px;">
+                The Hill
+                <p>Insurance</p>
+            </div>
+            <div class="col" style="width:300px; margin-left: 55px;">
+                71%
+            </div>
+            <div class="col" style="width:300px;">
+                <input type="button" style="margin-left:35px;" value="View">
+            </div>
+        </div>
+
+    </div>
+    <div class="midblock" style="margin-left: 300px;">
+        <div class="row">
+            <div class="col" style="width:450px;">
+                <h5>My Competitors</h5>
+                <p>More than 400+ new members</p>
+                <div class="d-flex">
+                    <div><img src="./pie.jpg" width="80" height="50" alt=""></div>
+                    <div class="ms-2">
+                        <h6>Cup & Green</h6>
+                        <p style="line-height: 6px;">Study highway types</p>
+                        <p style="line-height: 6px;">By CoreAd</p>
+                        <h6 style="line-height: 6px;">24,900</h6>
+                        <p style="margin-left: 40px;">Sales</p>
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <div><img src="./heart balloons.jpg" width="80" height="50" alt=""></div>
+                    <div class="ms-2">
+                        <h6>Yellow Hearts</h6>
+                        <p style="line-height: 6px;">Study highway types</p>
+                        <p style="line-height: 6px;">By: KeenThemes</p>
+                        <h6 style="line-height: 6px;">70,380</h6>
+                        <p style="margin-left: 40px;">Sales</p>
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <div><img src="./colored hands.jpg" width="80" height="50" alt=""></div>
+                    <div class="ms-2">
+                        <h6>Nike & Blue</h6>
+                        <p style="line-height: 6px;">Study highway types</p>
+                        <p style="line-height: 6px;">By: Invision Inc.</p>
+                        <h6 style="line-height: 6px;">7,200</h6>
+                        <p style="margin-left: 40px;">Sales</p>
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <div><img src="./candy machine.jpg" width="80" height="50" alt=""></div>
+                    <div class="ms-2">
+                        <h6>Red Boots</h6>
+                        <p style="line-height: 6px;">Study highway types</p>
+                        <p style="line-height: 6px;">By: Figma Studio</p>
+                        <h6 style="line-height: 6px;">36,450</h6>
+                        <p style="margin-left: 40px;">Sales</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col ms-2" style="width:450px;">
+                <h5>My Agents</h5>
+                <p>More than 400+ new members</p>
+                <div class="row">
+
+                    <div class="col">
+                        <div class="d-flex">
+                            <div><img src="./anne clarc.jpg" width="40" height="40" alt=""></div>
+                            <div style="margin-left: 20px;">
+                                <h6>Anne Clarc</h6>
+                                <p style="line-height: 6px;">HTML, CSS, Laravel</p>
+                            </div>
+                            <div><input style="margin-left: 100px;" type="button" value="Details"></div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div><img src="./brad simmons.jpg" width="40" height="40" alt=""></div>
+                            <div style="margin-left: 20px;">
+                                <h6>Brad Simmons</h6>
+                                <p style="line-height: 6px;">HTML, JS, ReactJS</p>
+                            </div>
+                            <div class="ms-5"><input style="margin-left: 60px;" type="button" value="Details">
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div><img src="./randy trent.jpg" width="40" height="40" alt=""></div>
+                            <div style="margin-left: 20px;">
+                                <h6>Randy Trent</h6>
+                                <p style="line-height: 6px;">C#, ASP.NET, MS SQL</p>
+                            </div>
+                            <div class="ms-5"><input style="margin-left: 35px;" type="button" value="Details">
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div><img src="./ricky hunt.jpg" width="40" height="40" alt=""></div>
+                            <div style="line-height: 6px;margin-left: 20px;">
+                                <h6>Ricky Hunt</h6>
+                                <p style="line-height: 6px;">PHP, Laravel, VueJS</p>
+                            </div>
+                            <div class="ms-5"><input style="margin-left: 50px;" type="button" value="Details">
+                            </div>
+                        </div>
+                        <div class="d-flex mt-3">
+                            <div><img src="./jessie clarcson.jpg" width="40" height="40" alt=""></div>
+                            <div style="margin-left: 20px;">
+                                <h6>Jessie Clarcson</h6>
+                                <p style="line-height: 6px;">ReactJS</p>
+                            </div>
+                            <div class="ms-5"><input style="margin-left: 78px;" type="button" value="Details">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    </div>
+
+
+
+    <!-- Chart -->
+    <!-- <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Set Data
+            var data = google.visualization.arrayToDataTable([
+                ['Price', 'Size'],
+                [50, 7], [60, 8], [70, 8], [80, 9], [90, 9],
+                [100, 9], [110, 10], [120, 11],
+                [130, 14], [140, 14], [150, 15]
+            ]);
+            // Set Options
+            var options = {
+                title: 'House Prices vs. Size',
+                hAxis: { title: 'Square Meters' },
+                vAxis: { title: 'Price in Millions' },
+                legend: 'none'
+            };
+            // Draw
+            var chart = new google.visualization.LineChart(document.getElementById('myChart'));
+            chart.draw(data, options);
+        }
+    </script> -->
+
+
+    <!-- Bootstrap js file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    <!-- <script src="@@path/vendor/chartist/dist/chartist.min.js"></script>
+    <script src="@@path/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> -->
+</body>
+
+</html>
